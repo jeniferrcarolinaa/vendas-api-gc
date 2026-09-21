@@ -1,0 +1,38 @@
+#construindo a img da API
+version: "3.8"
+services:
+  backend:
+    build:
+      context: .
+    container_name: vendas-api-container
+    #mapeando a porta
+    ports:
+      - "3000:3000"
+      #definindo a URL
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/vendasDB
+      #subindo o bd antes da API
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+  #baixando a imagem oficial do mongo
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+      #associar o volume ao diretório
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+#colovar td na mesma rede
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

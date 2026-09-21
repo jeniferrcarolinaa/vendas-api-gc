@@ -1,0 +1,13 @@
+{
+  "name": "vendas-api",
+  "version": "1.0.0",
+  "description": "API de Vendas On-line com Node.js e MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  }
+}
