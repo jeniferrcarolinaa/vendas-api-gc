@@ -1,5 +1,5 @@
 ##definindo a imagem do node
-FROM node:18-alone
+FROM node:18-alpine
 #diret do trab dentro do container
 WORKDIR /app
 #copiando as depend.
